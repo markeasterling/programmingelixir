@@ -23,4 +23,16 @@ defmodule MyList do
     biggest(tail, max(head, bigboy))
   end
 
+# little caesar's cipher
+  def caesar([], _n) do [] end
+  def caesar(list, n) do
+    Enum.map(list, &(if &1 + n > 122, do: &1 + n - 26, else: &1 + n))
+  end
+
+  def span(from, to) do
+    Enum.reduce from..to, [], fn(num, acc) ->
+      acc ++ [num]
+    end
+  end
+
 end
